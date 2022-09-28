@@ -2,6 +2,7 @@
 
 import sys
 import time
+import json
 
 import find_j
 import segment_j
@@ -25,4 +26,4 @@ for word in words:
 
 cards = list()
 for word in worddata:
-    cards.append(format_anki.format(word))
+    cards.append(format_anki.format(json.loads(word)))
