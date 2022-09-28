@@ -8,12 +8,12 @@ import segment_j
 import lookup_j
 import timeestimate
 
-words = list()
+words = set()
 for filename in sys.argv[1:]:
     file = open(filename)
     for line in file:
         for fragment in find_j.find_japanese(line):
-            words.extend(segment_j.segment_japanese(fragment))
+            words.update(segment_j.segment_japanese(fragment))
     file.close()
 
 worddata = list()
