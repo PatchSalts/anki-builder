@@ -16,8 +16,8 @@ for filename in sys.argv[1:]:
             words.update(segment_j.segment_japanese(fragment))
     file.close()
 
-worddata = list()
+worddata = set()
 print("Please wait " + str(timeestimate.estimate_time(len(words))) + " seconds while we look up those words on jisho.org...")
 for word in words:
-    worddata.extend(lookup_j.lookup_japanese(str(word)))
+    worddata.update(lookup_j.lookup_japanese(str(word)))
     time.sleep(timeestimate.SLEEPTIME)
