@@ -7,6 +7,7 @@ import find_j
 import segment_j
 import lookup_j
 import timeestimate
+import format_anki
 
 words = set()
 for filename in sys.argv[1:]:
@@ -21,3 +22,7 @@ print("Please wait " + str(timeestimate.estimate_time(len(words))) + " seconds w
 for word in words:
     worddata.update(lookup_j.lookup_japanese(str(word)))
     time.sleep(timeestimate.SLEEPTIME)
+
+cards = list()
+for word in worddata:
+    cards.append(format_anki.format(word))
