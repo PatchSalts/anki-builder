@@ -27,3 +27,7 @@ for word in words:
 cards = list()
 for word in worddata:
     cards.append(format_anki.format(json.loads(word)))
+
+outfile = open("anki.txt", "w")
+outfile.write("\n".join(cards))
+outfile.close()
